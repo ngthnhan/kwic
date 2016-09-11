@@ -25,6 +25,14 @@ public class RequiredWords {
         requiredWords.remove(word);
     }
 
+    /**
+     * Removes all the words stored.
+     */
+    public void removeAllRequiredWords() {
+        assert(null != this.requiredWords);
+        this.requiredWords.clear();
+    }
+
     public boolean isWordRequired(String word) {
         return requiredWords.contains(word);
     }
