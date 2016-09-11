@@ -29,6 +29,19 @@ public class Main {
             inputWordToIgnore = sc.nextLine();
         }
 
+        // Check if required words are supplied before proceeding
+        // Ensure the program still works as before without knowing or entering required words
+        if (sc.hasNext()) {
+            RequiredWords requiredWords = RequiredWords.getInstance();
+            requiredWords.activateRequiredWordFilter();
+            System.out.println("Enter words required (terminate input by entering empty line) ");
+            String inputWordRequired = sc.nextLine();
+            while (!inputWordRequired.isEmpty()) {
+                requiredWords.addRequiredWord(inputWordRequired);
+                inputWordRequired = sc.nextLine();
+            }
+        }
+
         Alphabetizer alphabetizer = new Alphabetizer();
         for (String str : inputs) {
             CircularShift shifter = new CircularShift(str);
