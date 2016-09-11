@@ -80,7 +80,7 @@ public class CircularShift {
 
     private boolean isShiftStartingWithIgnoredWord(String line) {
         String firstWord = line.split(DELIMITER)[0];
-        if ( _requiredWords.isRequiredWordFilterActive() && !_requiredWords.isWordRequired(firstWord)) {
+        if ( _requiredWords.isRequiredWordFilterActive() && _requiredWords.isWordRequired(firstWord)) {
             // Required word filter is active and the word is required, take precedence over ignored words
             return false;
         } else {
