@@ -29,10 +29,18 @@ public class RequiredWords {
     }
 
     public void addRequiredWord(String word) {
+        // Data validation for blank string
+        if (null == word || word.trim().length() == 0)
+            return;
+
         requiredWords.add(word.toLowerCase());
     }
 
     public void removeRequiredWord(String word) {
+        // Data validation for blank string
+        if (null == word || word.trim().length() == 0)
+            return;
+
         requiredWords.remove(word.toLowerCase());
     }
 
