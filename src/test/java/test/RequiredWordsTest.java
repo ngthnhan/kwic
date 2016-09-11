@@ -10,6 +10,16 @@ import static org.junit.Assert.*;
  * @author nhan.
  */
 public class RequiredWordsTest {
+    private RequiredWords requiredWords = RequiredWords.getInstance();
+
+    /**
+     * Sets up.
+     */
+    @Before
+    public void setUp() {
+        this.requiredWords = RequiredWords.getInstance();
+    }
+
     /**
      * Cleans up.
      */
@@ -18,8 +28,7 @@ public class RequiredWordsTest {
         // Remove all the words inside the singleton
         // Note: This is why I hold personal grudge against Singleton (and who use them) because it is a
         // nightmare to test
-
-        // TODO: Implements
+        this.requiredWords.removeAllRequiredWords();
     }
 
     /**
@@ -28,7 +37,6 @@ public class RequiredWordsTest {
     @Test
     public void testAddRequiredWords() {
         // Arrange
-        RequiredWords requiredWords = RequiredWords.getInstance();
         String word1 = "hello";
         String word2 = "world!";
 
@@ -51,7 +59,6 @@ public class RequiredWordsTest {
     @Test
     public void testRemoveRequiredWords() {
         // Arrange
-        RequiredWords requiredWords = RequiredWords.getInstance();
         String word1 = "hello";
         String word2 = "world!";
 
