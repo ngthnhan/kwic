@@ -1,12 +1,15 @@
 package CS3213;
 
+import java.util.HashSet;
+
 /**
  * Implements Singleton pattern.
  */
 public class RequiredWords {
     private static final RequiredWords _instance = new RequiredWords();
+    private HashSet<String> requiredWords;
     private RequiredWords() {
-        // TODO: Implements initialization
+        requiredWords = new HashSet<String>();
     }
 
     public static RequiredWords getInstance() {
@@ -15,15 +18,14 @@ public class RequiredWords {
 
 
     public void addRequiredWord(String word) {
-        // TODO: Implement
+        requiredWords.add(word);
     }
 
     public void removeRequiredWord(String word) {
-        // TODO: Implement
+        requiredWords.remove(word);
     }
 
     public boolean isWordRequired(String word) {
-        // TODO: Implement
-        return false;
+        return requiredWords.contains(word);
     }
 }
